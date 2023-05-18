@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <title>PW</title>
+        <!-- layout.html -->
+        ...
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'portfolio/css/layout.css' %}">
+    </head>
+    <body>
+        <header>
+            <div>André Carvalho</div>
+            <nav>
+                <a href="{% url 'portfolio:home' %}">home</a>
+                <a href="">products</a>
+                <a href="">about</a>
+                <a href="">contact</a>
+            </nav>
+        </header>
+        <main>
+            {% block main %}
+            {% endblock main %}
+        </main>
+        <footer>ULusófona, 2023</footer>
+    </body>
+</html>
