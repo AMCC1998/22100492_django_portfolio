@@ -1,0 +1,121 @@
+$font-size-reference: 16px; // Tamanho de referência dos títulos
+$title-ratio: 1.618; // Golden ratio
+$cor-laranja: #f7b63e;
+
+// Tamanhos de fonte para dispositivos móveis
+$font-size-mobile: (
+        $font-size-reference * $title-ratio * $title-ratio * $title-ratio * $title-ratio,
+        $font-size-reference * $title-ratio * $title-ratio * $title-ratio,
+        $font-size-reference * $title-ratio * $title-ratio,
+        $font-size-reference * $title-ratio,
+        $font-size-reference,
+);
+
+// Tamanhos de fonte para dispositivos médios
+$font-size-medium: (
+        $font-size-reference * $title-ratio * $title-ratio * $title-ratio * $title-ratio - 20px,
+        $font-size-reference * $title-ratio * $title-ratio * $title-ratio - 10px,
+        $font-size-reference * $title-ratio * $title-ratio - 15px,
+        $font-size-reference * $title-ratio,
+        $font-size-reference,
+);
+
+// Tamanhos de fonte para dispositivos large
+$font-size-large: $font-size-medium;
+
+
+section {
+    margin-bottom: 7rem;
+
+    &:last-child {
+        margin-bottom: 0;
+    }
+}
+
+footer{
+    margin-top: 7rem;
+}
+
+// Media queries para dispositivos grandes
+@media (min-width: 1024px) {
+    @each $i in (1, 2, 3, 4, 5) {
+        h#{$i}, .h#{$i} {
+            font-size: nth($font-size-large, $i);
+        }
+    }
+}
+
+// Media queries para dispositivos médios
+@media (max-width: 1024px) {
+    @each $i in (1, 2, 3, 4, 5) {
+        h#{$i}, .h#{$i} {
+            font-size: nth($font-size-medium, $i);
+        }
+    }
+
+    section {
+        margin-bottom: 6rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    footer{
+        margin-top: 6rem;
+    }
+}
+
+// Media queries para dispositivos móveis
+@media (max-width: 640px) {
+    @each $i in (1, 2, 3, 4, 5) {
+        h#{$i}, .h#{$i} {
+            font-size: nth($font-size-mobile, $i);
+        }
+    }
+
+    section {
+        margin-bottom: 4rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    footer{
+        margin-top: 4rem;
+    }
+}
+
+
+.button, button {
+
+    box-sizing: border-box;
+    appearance: none;
+    background-color: transparent;
+    border: 2px solid $cor-laranja;
+    border-radius: 0.6em;
+    color: $cor-laranja;
+    cursor: pointer;
+    align-self: center;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    padding: 1rem 2rem;
+    text-decoration: none;
+    text-align: center;
+    text-transform: uppercase;
+    display: inline-block;
+
+    &:hover,
+    &:focus {
+        color: #fff;
+        outline: 0;
+    }
+
+    transition: box-shadow 100ms ease-in-out, color 100ms ease-in-out;
+
+    &:hover {
+        box-shadow: 0 0 40px 40px $cor-laranja inset;
+    }
+}

@@ -1,0 +1,106 @@
+section {
+  margin-bottom: 7rem;
+}
+section:last-child {
+  margin-bottom: 0;
+}
+
+footer {
+  margin-top: 7rem;
+}
+
+@media (min-width: 1024px) {
+  h1, .h1 {
+    font-size: 89.6564171164px;
+  }
+  h2, .h2 {
+    font-size: 57.772816512px;
+  }
+  h3, .h3 {
+    font-size: 26.886784px;
+  }
+  h4, .h4 {
+    font-size: 25.888px;
+  }
+  h5, .h5 {
+    font-size: 16px;
+  }
+}
+@media (max-width: 1024px) {
+  h1, .h1 {
+    font-size: 89.6564171164px;
+  }
+  h2, .h2 {
+    font-size: 57.772816512px;
+  }
+  h3, .h3 {
+    font-size: 26.886784px;
+  }
+  h4, .h4 {
+    font-size: 25.888px;
+  }
+  h5, .h5 {
+    font-size: 16px;
+  }
+  section {
+    margin-bottom: 6rem;
+  }
+  section:last-child {
+    margin-bottom: 0;
+  }
+  footer {
+    margin-top: 6rem;
+  }
+}
+@media (max-width: 640px) {
+  h1, .h1 {
+    font-size: 109.6564171164px;
+  }
+  h2, .h2 {
+    font-size: 67.772816512px;
+  }
+  h3, .h3 {
+    font-size: 41.886784px;
+  }
+  h4, .h4 {
+    font-size: 25.888px;
+  }
+  h5, .h5 {
+    font-size: 16px;
+  }
+  section {
+    margin-bottom: 4rem;
+  }
+  section:last-child {
+    margin-bottom: 0;
+  }
+  footer {
+    margin-top: 4rem;
+  }
+}
+.button, button {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #f7b63e;
+  border-radius: 0.6em;
+  color: #f7b63e;
+  cursor: pointer;
+  align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  padding: 1rem 2rem;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  display: inline-block;
+  transition: box-shadow 100ms ease-in-out, color 100ms ease-in-out;
+}
+.button:hover, .button:focus, button:hover, button:focus {
+  color: #fff;
+  outline: 0;
+}
+.button:hover, button:hover {
+  box-shadow: 0 0 40px 40px #f7b63e inset;
+}

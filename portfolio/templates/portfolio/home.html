@@ -1,9 +1,60 @@
 {% extends 'portfolio/layout.html' %}
+{% load static %}
 
 {% block main %}
-    <h3>Titulo</h3>
-    <p>texto texto texto texto texto texto texto </p>
+    <div id="area-home">
+        <section>
+            <div style="text-align: center" class="wrapper-info">
+                <h2 class="titulo-area">Sobre mim</h2>
+                <p>O meu interesse pela programação web começou há 5 anos quando ingressei no meu primeiro emprego.
+                    Aqui comecei como Backend Developer e Frontend Developer, especializando-me em Frontend Developer nos últimos 2 anos.
+                    Tenho em conta a experiência como Backend como uma mais-valia no auxílio de Frontend Developer.</p>
+                <a href="{% static 'portfolio/docs/curriculo.pdf' %}" class="button">Ver Currículo</a>
+            </div>
+        </section>
 
-    {% load static %}
-    <img src="{% static 'portfolio/images/imagem.png' %}">
+        <section>
+            <h2 class=" titulo-area">Projetos</h2>
+            <div class="projetos-destaque">
+                {% for projeto in projetos %}
+                    <div class="lista-projetos__item">
+                        {% if projeto.fotos.all.0.imagem %}
+                            <div class="lista-projetos__item__wrapper-img">
+                                <img src="{{ projeto.fotos.all.0.imagem.url }}" loading="lazy" alt="André Carvalho | {{ projeto.fotos.all.0.alt }}">
+                            </div>
+                        {% else %}
+                            <div class="lista-projetos__item__wrapper-img">
+                                <img src="{% static 'portfolio/images/default.jpg' %}" loading="lazy" alt="André Carvalho">
+                            </div>
+                        {% endif %}
+
+                        <div class="lista-projetos__item__wrapper-conteudo">
+                            <h2 class="lista-projetos__item__titulo h3">{{ projeto.nome }}</h2>
+                            <span class="lista-projetos__item__categoria">{{ projeto.categoria.nome }}</span>
+                            <div class="lista-projetos__item__descricao-resumida">{{ projeto.descricaoResumida }}</div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+
+        <section>
+            <h2 class="titulo-area">Vídeos</h2>
+            <div class="videos-destaque">
+                {% for video in videos %}
+                    {% if video.iframe != "" %}
+                        <div class="lista-videos__item">
+                            <div class="lista-videos__item__wrapper-iframe">
+                                {{ video.iframe|safe }}
+                            </div>
+
+                            <div class="lista-videos__item__wrapper-conteudo">
+                                <h2 class="lista-videos__item__titulo h3">{{ projeto.nome }}</h2>
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </section>
+    </div>
 {% endblock %}

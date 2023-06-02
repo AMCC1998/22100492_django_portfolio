@@ -1,0 +1,24 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+    <div id="area-videos">
+        <h1 class="titulo-area h2">Videos</h1>
+        <div class="lista-videos">
+            {% for video in videos %}
+                {% if video.iframe != "" %}
+                    <div class="lista-videos__item">
+                        <div class="lista-videos__item__wrapper-iframe">
+                            {{ video.iframe|safe }}
+                        </div>
+
+                        <div class="lista-videos__item__wrapper-conteudo">
+                            <h2 class="lista-videos__item__titulo h3">{{ projeto.nome }}</h2>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>
+    {% load static %}
+{% endblock %}

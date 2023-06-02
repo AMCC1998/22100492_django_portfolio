@@ -1,0 +1,30 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+    <div id="area-projetos">
+        <h1 class="titulo-area h2">Projetos</h1>
+        <div class="lista-projetos">
+            {% for projeto in projetos %}
+                <div class="lista-projetos__item">
+                    {% if projeto.fotos.all.0.imagem %}
+                        <div class="lista-projetos__item__wrapper-img">
+                            <img src="{{ projeto.fotos.all.0.imagem.url }}" loading="lazy" alt="André Carvalho | {{ projeto.fotos.all.0.alt }}">
+                        </div>
+                    {% else %}
+                        <div class="lista-projetos__item__wrapper-img">
+                            <img src="{% static 'portfolio/images/default.jpg' %}" loading="lazy" alt="André Carvalho">
+                        </div>
+                    {% endif %}
+
+                    <div class="lista-projetos__item__wrapper-conteudo">
+                        <h2 class="lista-projetos__item__titulo h3">{{ projeto.nome }}</h2>
+                        <span class="lista-projetos__item__categoria">{{ projeto.categoria.nome }}</span>
+                        <div class="lista-projetos__item__descricao-resumida">{{ projeto.descricaoResumida }}</div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% load static %}
+{% endblock %}

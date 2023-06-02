@@ -1,0 +1,156 @@
+$altura_header: 60px;
+$altura_footer: 40px;
+@import 'estilos_default';
+
+header {
+    height: $altura_header;
+    background: purple;
+    color: white;
+    top: 0;
+
+    /* alinhando logo e menu */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    div {
+        font-size: 2em;
+        padding: 1em;
+    }
+
+    nav {
+        display: flex;
+        justify-contents: flex-end;
+    }
+
+
+    nav a {
+        padding: 0 1em;
+        text-decoration: none;
+        font-size: 1rem;
+        color: lightgray;
+    }
+}
+
+* {
+    font-family: 'Geologica', sans-serif;
+}
+
+body {
+    margin: 0;
+}
+
+main {
+    max-width: 1200px;
+    margin: 0 auto;
+
+    min-height: calc(100vh - $altura_header - $altura_footer);
+    padding: 0 12px;
+
+    #area-home {
+        .wrapper-info{
+            .button{
+                margin-top: 3rem;
+            }
+        }
+    }
+
+    #area-home, #area-videos, #area-projetos {
+        .projetos-destaque, .lista-projetos {
+            display: grid;
+            grid-template-columns: repeat(3, 33.333%);
+            grid-gap: 2rem;
+
+            .lista-projetos__item {
+                box-shadow: 0 2px 20px 5px rgba(0, 0, 0, .04);
+                -webkit-transition: box-shadow 0.3s;
+                border-radius: 5px;
+
+                &:hover {
+                    box-shadow: 0 2px 20px 5px rgba(0, 0, 0, .08);
+                }
+
+                .lista-projetos__item__wrapper-img {
+                    img {
+                        width: 100%;
+                        max-width: 100%;
+                        object-fit: cover;
+                        aspect-ratio: 3/2;
+                        border-radius: 5px 5px 0 0;
+                    }
+                }
+
+                .lista-projetos__item__wrapper-conteudo {
+                    padding: 1.5rem 1.5rem 3rem;
+
+                    .lista-projetos__item__titulo {
+                        margin-bottom: 1.5rem;
+                    }
+                }
+            }
+        }
+
+        .videos-destaque, .lista-videos {
+            display: grid;
+            grid-template-columns: repeat(2, 50%);
+            grid-gap: 2rem;
+
+            .lista-videos__item {
+                box-shadow: 0 2px 20px 5px rgba(0, 0, 0, .04);
+                -webkit-transition: box-shadow 0.3s;
+                border-radius: 5px;
+
+                &:hover {
+                    box-shadow: 0 2px 20px 5px rgba(0, 0, 0, .08);
+                }
+
+                .lista-videos__item__wrapper-iframe {
+                    height: 100%;
+
+                    iframe {
+                        max-width: 100%;
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                        aspect-ratio: 16/8;
+                    }
+                }
+
+                .llista-videos__item__wrapper-conteudo {
+                    padding: 1.5rem 1.5rem 3rem;
+
+                    .lista-videos__item__titulo {
+                        margin-bottom: 1.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    #area-projetos {
+
+    }
+
+    #area-videos {
+
+    }
+
+    .titulo-area {
+        margin-bottom: 3rem;
+        margin-top: 4rem;
+        text-align: center;
+    }
+}
+
+footer {
+    width: 100%;
+    color: white;
+    text-align: center;
+    background-color: #2b2b2b;
+    height: $altura_footer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
