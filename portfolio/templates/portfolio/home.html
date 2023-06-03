@@ -3,58 +3,96 @@
 
 {% block main %}
     <div id="area-home">
-        <section>
-            <div style="text-align: center" class="wrapper-info">
-                <h2 class="titulo-area">Sobre mim</h2>
-                <p>O meu interesse pela programação web começou há 5 anos quando ingressei no meu primeiro emprego.
-                    Aqui comecei como Backend Developer e Frontend Developer, especializando-me em Frontend Developer nos últimos 2 anos.
-                    Tenho em conta a experiência como Backend como uma mais-valia no auxílio de Frontend Developer.</p>
-                <a href="{% static 'portfolio/docs/curriculo.pdf' %}" class="button">Ver Currículo</a>
+
+        <div class="w-1200">
+            <section id="banner">
+                <div class="banner__texto">
+                    <h1>André Carvalho</h1>
+                    <p class="h4">Developer / Drone Pilot / Musician</p>
+                    <a class="url-facebook" style="display:inline-block" href="https://www.facebook.com/andre.carvalho.52831666/"
+                       target="_blank">
+                        <img width="30" loading="lazy" class="icon-pequeno" alt="André Carvalho - Facebook"
+                             src="https://www.amccweb.com/ficheiros/imagens/base/icons/facebook.png">
+                    </a>
+                    <a class="url-instagram" style="display:inline-block" href="https://www.instagram.com/amcc1998/"
+                       target="_blank">
+                        <img width="30" loading="lazy" class="icon-pequeno" alt="André Carvalho - Instagram"
+                             src="https://www.amccweb.com/ficheiros/imagens/base/icons/instagram.png">
+                    </a>
+                    <a class="url-linkedin" style="display:inline-block"
+                       href="https://www.linkedin.com/in/andr%C3%A9-carvalho-9978a6168/" target="_blank">
+                        <img width="30" loading="lazy" class="icon-pequeno" alt="André Carvalho - Linkedin"
+                             src="https://www.amccweb.com/ficheiros/imagens/base/icons/linkedin.png">
+                    </a>
+                    <a class="url-youtube" style="display:inline-block"
+                       href="https://www.youtube.com/user/0AndreCarvalho?sub_confirmation=1" target="_blank">
+                        <img width="30" loading="lazy" class="icon-pequeno" alt="André Carvalho - YouTube"
+                             src="https://www.amccweb.com/ficheiros/imagens/base/icons/youtube.png">
+                    </a>
+                </div>
+                <div class="banner__img">
+                    <img src="{% static 'portfolio/images/fotografia_sobre.png' %}" loading="lazy" alt="André Carvalho">
+                </div>
+            </section>
+        </div>
+        <section id="sobre">
+            <div class="w-600">
+                <div style="text-align: center" class="wrapper-info">
+                    <h2 class="titulo-area">Sobre mim</h2>
+                    <p>O meu interesse pela programação web começou há 5 anos quando ingressei no meu primeiro emprego.
+                        Aqui comecei como Backend Developer e Frontend Developer, especializando-me em Frontend Developer nos últimos 2 anos.
+                        Tenho em conta a experiência como Backend como uma mais-valia no auxílio de Frontend Developer.</p>
+                    <a href="{% static 'portfolio/docs/curriculo.pdf' %}" class="button">Ver Currículo</a>
+                </div>
             </div>
         </section>
 
-        <section>
-            <h2 class=" titulo-area">Projetos</h2>
-            <div class="projetos-destaque">
-                {% for projeto in projetos %}
-                    <div class="lista-projetos__item">
-                        {% if projeto.fotos.all.0.imagem %}
-                            <div class="lista-projetos__item__wrapper-img">
-                                <img src="{{ projeto.fotos.all.0.imagem.url }}" loading="lazy" alt="André Carvalho | {{ projeto.fotos.all.0.alt }}">
+        <div class="w-1200">
+            <section id="projetos">
+                <h2 class=" titulo-area">Projetos</h2>
+                <div class="projetos-destaque">
+                    {% for projeto in projetos %}
+                        <div class="lista-projetos__item">
+                            {% if projeto.fotos.all.0.imagem %}
+                                <div class="lista-projetos__item__wrapper-img">
+                                    <img src="{{ projeto.fotos.all.0.imagem.url }}" loading="lazy" alt="André Carvalho | {{ projeto.fotos.all.0.alt }}">
+                                </div>
+                            {% else %}
+                                <div class="lista-projetos__item__wrapper-img">
+                                    <img src="{% static 'portfolio/images/default.jpg' %}" loading="lazy" alt="André Carvalho | default">
+                                </div>
+                            {% endif %}
+
+                            <div class="lista-projetos__item__wrapper-conteudo">
+                                <h2 class="lista-projetos__item__titulo h3">{{ projeto.nome }}</h2>
+                                <span class="lista-projetos__item__categoria">{{ projeto.categoria.nome }}</span>
+                                <div class="lista-projetos__item__descricao-resumida">{{ projeto.descricaoResumida }}</div>
                             </div>
-                        {% else %}
-                            <div class="lista-projetos__item__wrapper-img">
-                                <img src="{% static 'portfolio/images/default.jpg' %}" loading="lazy" alt="André Carvalho">
+                        </div>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'portfolio:projetos' %}" class="button">Ver mais</a>
+            </section>
+
+            <section class="no-mbs" id="videos">
+                <h2 class="titulo-area">Vídeos</h2>
+                <div class="videos-destaque">
+                    {% for video in videos %}
+                        {% if video.iframe != "" %}
+                            <div class="lista-videos__item">
+                                <div class="lista-videos__item__wrapper-iframe">
+                                    {{ video.iframe|safe }}
+                                </div>
+
+                                <div class="lista-videos__item__wrapper-conteudo">
+                                    <h2 class="lista-videos__item__titulo h3">{{ projeto.nome }}</h2>
+                                </div>
                             </div>
                         {% endif %}
-
-                        <div class="lista-projetos__item__wrapper-conteudo">
-                            <h2 class="lista-projetos__item__titulo h3">{{ projeto.nome }}</h2>
-                            <span class="lista-projetos__item__categoria">{{ projeto.categoria.nome }}</span>
-                            <div class="lista-projetos__item__descricao-resumida">{{ projeto.descricaoResumida }}</div>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
-        </section>
-
-        <section>
-            <h2 class="titulo-area">Vídeos</h2>
-            <div class="videos-destaque">
-                {% for video in videos %}
-                    {% if video.iframe != "" %}
-                        <div class="lista-videos__item">
-                            <div class="lista-videos__item__wrapper-iframe">
-                                {{ video.iframe|safe }}
-                            </div>
-
-                            <div class="lista-videos__item__wrapper-conteudo">
-                                <h2 class="lista-videos__item__titulo h3">{{ projeto.nome }}</h2>
-                            </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
-        </section>
+                    {% endfor %}
+                </div>
+                <a href="{% url 'portfolio:videos' %}" class="button">Ver mais</a>
+            </section>
+        </div>
     </div>
 {% endblock %}

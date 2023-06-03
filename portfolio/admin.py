@@ -8,7 +8,6 @@ admin.site.site_header = 'André Carvalho'
 admin.site.register(Blog)
 admin.site.register(Projeto)
 admin.site.register(CatergoriaProjeto)
-admin.site.register(Area)
-admin.site.register(Autor)
 admin.site.register(Foto)
 admin.site.register(Video)
+admin.site.register(Area_Site)

@@ -3,21 +3,27 @@
 
 {% block main %}
     <div id="area-videos">
-        <h1 class="titulo-area h2">Videos</h1>
-        <div class="lista-videos">
-            {% for video in videos %}
-                {% if video.iframe != "" %}
-                    <div class="lista-videos__item">
-                        <div class="lista-videos__item__wrapper-iframe">
-                            {{ video.iframe|safe }}
-                        </div>
+        <video autoplay muted loop id="bg-video" preload="none" poster="assets/bg_video.jpg">
+            <source src="https://www.amccweb.com/ficheiros/imagens/base/bg_video.mp4" type="video/mp4">
+        </video>
 
-                        <div class="lista-videos__item__wrapper-conteudo">
-                            <h2 class="lista-videos__item__titulo h3">{{ projeto.nome }}</h2>
+        <div class="w-1200">
+            <h1 class="titulo-area h2">Videos</h1>
+            <div class="lista-videos">
+                {% for video in videos %}
+                    {% if video.iframe != "" %}
+                        <div class="lista-videos__item">
+                            <div class="lista-videos__item__wrapper-iframe">
+                                {{ video.iframe|safe }}
+                            </div>
+
+                            <div class="lista-videos__item__wrapper-conteudo">
+                                <h2 class="lista-videos__item__titulo h3">{{ projeto.nome }}</h2>
+                            </div>
                         </div>
-                    </div>
-                {% endif %}
-            {% endfor %}
+                    {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
     {% load static %}

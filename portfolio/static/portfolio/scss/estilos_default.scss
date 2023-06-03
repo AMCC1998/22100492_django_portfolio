@@ -1,6 +1,5 @@
 $font-size-reference: 16px; // Tamanho de referência dos títulos
 $title-ratio: 1.618; // Golden ratio
-$cor-laranja: #f7b63e;
 
 // Tamanhos de fonte para dispositivos móveis
 $font-size-mobile: (
@@ -24,15 +23,20 @@ $font-size-medium: (
 $font-size-large: $font-size-medium;
 
 
-section {
-    margin-bottom: 7rem;
+$altura_header: 60px;
+$altura_footer: 40px;
 
-    &:last-child {
-        margin-bottom: 0;
-    }
+$cor-laranja: #f7b63e;
+$cor-cizento-escuro: #2b2b2b;
+
+$default-margin: 7rem;
+
+
+section:not(.no-mb) {
+    margin-bottom: $default-margin;
 }
 
-footer{
+footer {
     margin-top: 7rem;
 }
 
@@ -40,6 +44,7 @@ footer{
 @media (min-width: 1024px) {
     @each $i in (1, 2, 3, 4, 5) {
         h#{$i}, .h#{$i} {
+            line-height: 1;
             font-size: nth($font-size-large, $i);
         }
     }
@@ -49,19 +54,17 @@ footer{
 @media (max-width: 1024px) {
     @each $i in (1, 2, 3, 4, 5) {
         h#{$i}, .h#{$i} {
+            line-height: 1;
             font-size: nth($font-size-medium, $i);
         }
     }
 
-    section {
-        margin-bottom: 6rem;
+    section:not(.no-mb) {
+        margin-bottom: calc($default-margin / 2);
 
-        &:last-child {
-            margin-bottom: 0;
-        }
     }
 
-    footer{
+    footer {
         margin-top: 6rem;
     }
 }
@@ -70,19 +73,13 @@ footer{
 @media (max-width: 640px) {
     @each $i in (1, 2, 3, 4, 5) {
         h#{$i}, .h#{$i} {
+            line-height: 1;
             font-size: nth($font-size-mobile, $i);
         }
     }
 
-    section {
-        margin-bottom: 4rem;
 
-        &:last-child {
-            margin-bottom: 0;
-        }
-    }
-
-    footer{
+    footer {
         margin-top: 4rem;
     }
 }

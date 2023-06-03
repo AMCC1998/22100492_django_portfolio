@@ -1,6 +1,11 @@
 from django.db import models
 from django.contrib.staticfiles.storage import staticfiles_storage
+from django.db.models import TextField
 from django.utils.html import format_html
+from django import forms
+
+from django.db import models
+from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -22,6 +27,11 @@ class Projeto(models.Model):
     nome = models.CharField(max_length=50)
     descricaoResumida = models.CharField(max_length=255)
     descricao = models.TextField(max_length=5000)
+    OPÇÕES = (
+        ('1', 'Sim'),
+        ('0', 'Não'),
+    )
+    destaqueHome = models.CharField(max_length=10, choices=OPÇÕES, default='1')
     categoria = models.ManyToManyField(
         CatergoriaProjeto,
         related_name='projetos'
@@ -42,47 +52,21 @@ class Foto(models.Model):
         return format_html(self.nome + '<img src="{}" height="60" alt="{}">', imagem_url, self.alt)
 
 
-class Area(models.Model):
+class Area_Site(models.Model):
     nome = models.CharField(max_length=50)
-    area = models.ForeignKey(
-        Blog,
-        on_delete=models.CASCADE,
-        related_name='areas'
-    )
+    nomeItemMenu = models.CharField(max_length=50, default='')
+    seoTitle = models.CharField(max_length=50, default='')
+    seoDescription = TextField(max_length=70, default='')
+    html = HTMLField(default='')
+    posicao = models.IntegerField(default=0)
 
     def __str__(self):
-        return self.nome
+        return f"{self.nome} (Posição: {self.posicao})"
 
 
 class Video(models.Model):
     nome = models.CharField(max_length=50)
     iframe = models.TextField(max_length=2000)
-    def __str__(self):
-        return self.nome
-
-
-class Autor(models.Model):
-    nome = models.CharField(max_length=50)
-    areas = models.ManyToManyField(
-        Area,
-        related_name='autores'
-    )
 
     def __str__(self):
         return self.nome
-
-
-class Artigo(models.Model):
-    titulo = models.CharField(max_length=50)
-    data_criacao = models.CharField
-    autor = models.ManyToManyField(
-        Autor,
-        related_name='autores'
-    )
-    areas = models.ManyToManyField(
-        Area,
-        related_name='artigos'
-    )
-
-    def __str__(self):
-        return self.titulo

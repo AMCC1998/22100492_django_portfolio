@@ -1,8 +1,5 @@
-section {
+section:not(.no-mb) {
   margin-bottom: 7rem;
-}
-section:last-child {
-  margin-bottom: 0;
 }
 
 footer {
@@ -11,42 +8,49 @@ footer {
 
 @media (min-width: 1024px) {
   h1, .h1 {
+    line-height: 1;
     font-size: 89.6564171164px;
   }
   h2, .h2 {
+    line-height: 1;
     font-size: 57.772816512px;
   }
   h3, .h3 {
+    line-height: 1;
     font-size: 26.886784px;
   }
   h4, .h4 {
+    line-height: 1;
     font-size: 25.888px;
   }
   h5, .h5 {
+    line-height: 1;
     font-size: 16px;
   }
 }
 @media (max-width: 1024px) {
   h1, .h1 {
+    line-height: 1;
     font-size: 89.6564171164px;
   }
   h2, .h2 {
+    line-height: 1;
     font-size: 57.772816512px;
   }
   h3, .h3 {
+    line-height: 1;
     font-size: 26.886784px;
   }
   h4, .h4 {
+    line-height: 1;
     font-size: 25.888px;
   }
   h5, .h5 {
+    line-height: 1;
     font-size: 16px;
   }
-  section {
-    margin-bottom: 6rem;
-  }
-  section:last-child {
-    margin-bottom: 0;
+  section:not(.no-mb) {
+    margin-bottom: 3.5rem;
   }
   footer {
     margin-top: 6rem;
@@ -54,25 +58,24 @@ footer {
 }
 @media (max-width: 640px) {
   h1, .h1 {
+    line-height: 1;
     font-size: 109.6564171164px;
   }
   h2, .h2 {
+    line-height: 1;
     font-size: 67.772816512px;
   }
   h3, .h3 {
+    line-height: 1;
     font-size: 41.886784px;
   }
   h4, .h4 {
+    line-height: 1;
     font-size: 25.888px;
   }
   h5, .h5 {
+    line-height: 1;
     font-size: 16px;
-  }
-  section {
-    margin-bottom: 4rem;
-  }
-  section:last-child {
-    margin-bottom: 0;
   }
   footer {
     margin-top: 4rem;

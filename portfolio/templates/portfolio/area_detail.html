@@ -1,0 +1,8 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+    <div id="area-{{ area.nome }}" class="w-1200">
+        {{ area.html|safe }}
+    </div>
+{% endblock %}
