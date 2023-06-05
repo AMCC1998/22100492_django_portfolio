@@ -5,7 +5,6 @@ from django.utils.html import format_html
 from django import forms
 
 from django.db import models
-from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -57,7 +56,7 @@ class Area_Site(models.Model):
     nomeItemMenu = models.CharField(max_length=50, default='')
     seoTitle = models.CharField(max_length=50, default='')
     seoDescription = TextField(max_length=70, default='')
-    html = HTMLField(default='')
+    html = models.TextField(default='')
     posicao = models.IntegerField(default=0)
 
     def __str__(self):
