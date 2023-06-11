@@ -1,0 +1,37 @@
+{% extends 'users/layout.html' %}
+
+
+{% block main %}
+
+    <div class="wrapper-lista-objs">
+        <div class="wrapper-lista-objs__header">
+            <h2>{{ titulo }}</h2>
+            <a class="button" href="{% url endereco_adicao %}">Adicionar {{ titulo }}</a>
+        </div>
+        <table>
+            <tr>
+                {% for campo in campos_a_listar %}
+                    {% if campo == "id" %}
+                        <th>Opções</th>
+                    {% else %}
+                        <th>{{ campo }}</th>
+                    {% endif %}
+                {% endfor %}
+            </tr>
+            {% for projeto_lista in objs %}
+                <tr>
+                    {% for item in projeto_lista %}
+                        {% if item.Campo == "ID" %}
+                            <td><a href="{% url endereco_edicao item.Valor %}">✏️</a>
+                                <a href="{% url endereco_eliminar item.Valor %}">🚮</a></td>
+                        {% else %}
+                            <td>{{ item.Valor }}</td>
+                        {% endif %}
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+
+    </div>
+{% endblock %}

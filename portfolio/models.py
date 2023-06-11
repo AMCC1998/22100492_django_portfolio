@@ -69,3 +69,13 @@ class Video(models.Model):
 
     def __str__(self):
         return self.nome
+
+class Formacao(models.Model):
+    titulo = models.CharField(max_length=255)
+    dataInicio = models.DateField(null=True, default=None)
+    dataFim = models.DateField(null=True, default=None)
+    detalhes = models.TextField(max_length=5000, default='')
+    pdfFile = models.FileField(upload_to='pdfs/', null=True, blank=True)
+
+    def __str__(self):
+        return self.titulo

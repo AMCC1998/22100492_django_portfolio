@@ -55,3 +55,4 @@ def area_detail_view(request, area_id):
         'seoDescription': area.seoDescription,
     }
     return render(request, 'portfolio/area_detail.html', context)
+

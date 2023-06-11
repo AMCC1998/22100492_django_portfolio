@@ -2,6 +2,10 @@ section:not(.no-mb) {
   margin-bottom: 7rem;
 }
 
+header .link-menu-mobile {
+  display: none;
+}
+
 footer {
   margin-top: 7rem;
 }
@@ -59,11 +63,11 @@ footer {
 @media (max-width: 640px) {
   h1, .h1 {
     line-height: 1;
-    font-size: 109.6564171164px;
+    font-size: 69.6564171164px;
   }
   h2, .h2 {
     line-height: 1;
-    font-size: 67.772816512px;
+    font-size: 37.772816512px;
   }
   h3, .h3 {
     line-height: 1;
@@ -81,6 +85,101 @@ footer {
     margin-top: 4rem;
   }
 }
+@media (max-width: 860px) {
+  header div.logo {
+    font-size: 1.2rem;
+  }
+  header .dropdown {
+    position: relative;
+  }
+  header .dropdown .dropdown__content {
+    top: 3rem;
+    z-index: 9;
+  }
+  a.link-menu-mobile {
+    display: block;
+    width: 2rem;
+    position: relative;
+    height: 1.8rem;
+    z-index: 5;
+    margin-left: 0.5rem;
+  }
+  a.link-menu-mobile .middle-bar {
+    border: 2px solid white;
+    position: absolute;
+    display: block;
+    width: 60%;
+    top: 45%;
+    transition: transform 0.2s;
+    opacity: 1;
+  }
+  a.link-menu-mobile::before {
+    content: "";
+    border: 2px solid white;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    transition: transform 0.2s;
+  }
+  a.link-menu-mobile::after {
+    content: "";
+    border: 2px solid white;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transition: transform 0.2s;
+  }
+  a.link-menu-mobile.link-menu-mobile--close .middle-bar {
+    transform: translateX(-4rem);
+  }
+  a.link-menu-mobile.link-menu-mobile--close::before {
+    transform: rotate(45deg);
+    top: 59%;
+  }
+  a.link-menu-mobile.link-menu-mobile--close::after {
+    transform: rotate(309deg);
+    bottom: 36%;
+  }
+  nav.hero__menu {
+    display: none;
+  }
+  nav.hero__menu.hero__menu--open {
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    background-color: rgba(33, 33, 33, 0.99);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  nav.hero__menu.hero__menu--open a {
+    width: 100%;
+  }
+  nav.hero__menu.hero__menu--open ul {
+    height: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-items: center;
+    align-content: center;
+  }
+  nav.hero__menu.hero__menu--open ul li {
+    display: block;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+form input, form textarea, form select {
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 11px 13px;
+}
+
 .button, button {
   box-sizing: border-box;
   appearance: none;
@@ -127,10 +226,52 @@ header nav {
   justify-contents: flex-end;
 }
 header nav a {
-  padding: 0 1em;
+  padding: 1rem 1em;
   text-decoration: none;
   font-size: 1rem;
   color: lightgray;
+}
+header .dropdown {
+  padding: 0;
+  display: flex;
+  width: 100%;
+}
+header .dropdown .dropdown__trigger {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+header .dropdown .dropdown__trigger:after {
+  content: "+";
+  margin-left: 0.8rem;
+  width: 10px;
+  height: 10px;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+header .dropdown .dropdown__content {
+  position: absolute;
+  opacity: 0;
+  display: none;
+  transition: opacity 0.3s ease-in-out;
+  background-color: #2b2b2b;
+  color: white;
+  top: 45px;
+  flex-wrap: wrap;
+  padding: 1rem;
+  gap: 1rem;
+}
+header .dropdown .dropdown__content:hover {
+  display: flex;
+  opacity: 1;
+}
+header .dropdown .dropdown__content a {
+  padding: 0;
+  width: 100%;
+}
+header .dropdown:hover .dropdown__content {
+  display: flex;
+  opacity: 1;
 }
 
 * {
@@ -264,6 +405,92 @@ main .titulo-area {
   margin-bottom: 3rem;
   margin-top: 4rem;
   text-align: center;
+}
+main.admin {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+main.admin .wrapper-form-adicionar form {
+  width: 100%;
+}
+main.admin .wrapper-form-adicionar form div {
+  margin-top: -1rem;
+}
+main.admin .wrapper-form-adicionar form p, main.admin .wrapper-form-adicionar form div {
+  display: block;
+  margin-bottom: 2rem;
+}
+main.admin .wrapper-form-adicionar form p label, main.admin .wrapper-form-adicionar form div label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+main.admin .wrapper-form-adicionar form p input, main.admin .wrapper-form-adicionar form p textarea, main.admin .wrapper-form-adicionar form p select, main.admin .wrapper-form-adicionar form div input, main.admin .wrapper-form-adicionar form div textarea, main.admin .wrapper-form-adicionar form div select {
+  width: 100%;
+}
+main.admin .wrapper-login {
+  background-color: white;
+  display: inline-block;
+  padding: 3rem 4rem;
+  border-radius: 5px;
+  box-shadow: 0 2px 20px 5px rgba(0, 0, 0, 0.2);
+  margin: auto auto;
+  text-align: center;
+  width: 30%;
+}
+main.admin .wrapper-login h1 {
+  margin-top: 0px;
+}
+main.admin .wrapper-login form {
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+main.admin .wrapper-login form input {
+  display: block;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+main.admin .wrapper-login .wrapper-msg {
+  color: #ff4141;
+  margin-bottom: 10px;
+}
+main.admin .wrapper-lista-objs {
+  min-width: 60%;
+}
+main.admin .wrapper-lista-objs .wrapper-lista-objs__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+main.admin .wrapper-lista-objs table {
+  width: 100%;
+  border: 2px solid #2b2b2b;
+  border-radius: 5px;
+  padding: 0;
+}
+main.admin .wrapper-lista-objs table th {
+  padding: 1rem;
+  background-color: #2b2b2b;
+  color: white;
+}
+main.admin .wrapper-lista-objs table td, main.admin .wrapper-lista-objs table th {
+  border: 2px solid #2b2b2b;
+  padding: 1rem;
+}
+main.admin .wrapper-lista-objs table td:last-child a {
+  text-decoration: none;
+  margin-right: 0.7rem;
+  font-size: 1.2rem;
+}
+main.admin .wrapper-lista-objs table td:last-child a:last-child {
+  margin-right: 0;
 }
 
 footer {

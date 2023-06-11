@@ -2,6 +2,10 @@ section:not(.no-mb) {
   margin-bottom: 7rem;
 }
 
+header .link-menu-mobile {
+  display: none;
+}
+
 footer {
   margin-top: 7rem;
 }
@@ -59,11 +63,11 @@ footer {
 @media (max-width: 640px) {
   h1, .h1 {
     line-height: 1;
-    font-size: 109.6564171164px;
+    font-size: 69.6564171164px;
   }
   h2, .h2 {
     line-height: 1;
-    font-size: 67.772816512px;
+    font-size: 37.772816512px;
   }
   h3, .h3 {
     line-height: 1;
@@ -81,6 +85,101 @@ footer {
     margin-top: 4rem;
   }
 }
+@media (max-width: 860px) {
+  header div.logo {
+    font-size: 1.2rem;
+  }
+  header .dropdown {
+    position: relative;
+  }
+  header .dropdown .dropdown__content {
+    top: 3rem;
+    z-index: 9;
+  }
+  a.link-menu-mobile {
+    display: block;
+    width: 2rem;
+    position: relative;
+    height: 1.8rem;
+    z-index: 5;
+    margin-left: 0.5rem;
+  }
+  a.link-menu-mobile .middle-bar {
+    border: 2px solid white;
+    position: absolute;
+    display: block;
+    width: 60%;
+    top: 45%;
+    transition: transform 0.2s;
+    opacity: 1;
+  }
+  a.link-menu-mobile::before {
+    content: "";
+    border: 2px solid white;
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 0;
+    transition: transform 0.2s;
+  }
+  a.link-menu-mobile::after {
+    content: "";
+    border: 2px solid white;
+    width: 100%;
+    display: block;
+    position: absolute;
+    bottom: 0;
+    transition: transform 0.2s;
+  }
+  a.link-menu-mobile.link-menu-mobile--close .middle-bar {
+    transform: translateX(-4rem);
+  }
+  a.link-menu-mobile.link-menu-mobile--close::before {
+    transform: rotate(45deg);
+    top: 59%;
+  }
+  a.link-menu-mobile.link-menu-mobile--close::after {
+    transform: rotate(309deg);
+    bottom: 36%;
+  }
+  nav.hero__menu {
+    display: none;
+  }
+  nav.hero__menu.hero__menu--open {
+    position: absolute;
+    height: 100%;
+    width: 80%;
+    background-color: rgba(33, 33, 33, 0.99);
+    top: 0;
+    left: 0;
+    z-index: 1;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  nav.hero__menu.hero__menu--open a {
+    width: 100%;
+  }
+  nav.hero__menu.hero__menu--open ul {
+    height: 100%;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-items: center;
+    align-content: center;
+  }
+  nav.hero__menu.hero__menu--open ul li {
+    display: block;
+    width: 100%;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+form input, form textarea, form select {
+  border: 2px solid grey;
+  border-radius: 5px;
+  padding: 11px 13px;
+}
+
 .button, button {
   box-sizing: border-box;
   appearance: none;

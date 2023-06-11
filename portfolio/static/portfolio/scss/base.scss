@@ -21,13 +21,64 @@ header {
         justify-contents: flex-end;
     }
 
-
     nav a {
-        padding: 0 1em;
+        padding: 1rem 1em;
         text-decoration: none;
         font-size: 1rem;
         color: lightgray;
     }
+
+    .dropdown {
+        padding: 0;
+        display: flex;
+        width: 100%;
+
+        .dropdown__trigger {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+
+            &:after {
+                content: "+";
+                margin-left: 0.8rem;
+                width: 10px;
+                height: 10px;
+                display: inline-block;
+                font-size: 1.2rem;
+                font-weight: bold;
+            }
+        }
+
+        .dropdown__content {
+            position: absolute;
+            opacity: 0;
+            display: none;
+            transition: opacity 0.3s ease-in-out;
+            background-color: $cor-cizento-escuro;
+            color: white;
+            top: 45px;
+            flex-wrap: wrap;
+            padding: 1rem;
+            gap: 1rem;
+
+            &:hover {
+                display: flex;
+                opacity: 1;
+            }
+
+            a {
+                padding: 0;
+                width: 100%;
+            }
+        }
+
+        &:hover .dropdown__content {
+            display: flex;
+            opacity: 1;
+        }
+
+
+    }
+
 }
 
 * {
@@ -210,6 +261,123 @@ main {
         margin-top: 4rem;
         text-align: center;
     }
+
+    &.admin {
+        max-width: 1200px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        .wrapper-form-adicionar {
+
+            form {
+                //display: flex;
+                //flex-wrap: wrap;
+                //gap: 3rem;
+
+                width: 100%;
+
+                div{
+                    margin-top: -1rem;
+                }
+                p, div {
+                    display: block;
+                    margin-bottom:2rem;
+
+                    label {
+                        //text-align: center;
+                        display: block;
+                        margin-bottom: 0.5rem;
+                    }
+
+                    input, textarea, select {
+                        width: 100%;
+                    }
+                }
+            }
+
+        }
+
+        .wrapper-login {
+            background-color: white;
+            display: inline-block;
+            padding: 3rem 4rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 20px 5px rgba(0, 0, 0, .2);
+            margin: auto auto;
+            text-align: center;
+            width: 30%;
+
+
+            h1 {
+                margin-top: 0px;
+            }
+
+            form {
+                text-align: center;
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+
+                input {
+                    display: block;
+                    margin-bottom: 1rem;
+                    width: 100%;
+                }
+            }
+
+            .wrapper-msg {
+                color: $cor-vermelho;
+                margin-bottom: 10px;
+            }
+        }
+
+        .wrapper-lista-objs {
+            min-width: 60%;
+
+            .wrapper-lista-objs__header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 2rem;
+                flex-wrap: wrap;
+            }
+
+            table {
+                width: 100%;
+                border: 2px solid $cor-cizento-escuro;
+                border-radius: 5px;
+
+                padding: 0;
+
+                th {
+                    padding: 1rem;
+                    background-color: $cor-cizento-escuro;
+                    color: white;
+                }
+
+                td, th {
+                    border: 2px solid $cor-cizento-escuro;
+                    padding: 1rem;
+                }
+
+                td:last-child {
+                    a {
+                        text-decoration: none;
+                        margin-right: 0.7rem;
+                        font-size: 1.2rem;
+
+                        &:last-child {
+                            margin-right: 0;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 footer {

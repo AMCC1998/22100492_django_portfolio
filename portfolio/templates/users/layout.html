@@ -31,17 +31,31 @@
             <a class="link-menu-mobile">
                 <span class="middle-bar"></span>
             </a>
-            <div class="logo"><a href="{% url 'portfolio:home' %}" style="color: white; text-decoration: none">André Carvalho</a></div>
+            <div><a href="{% url 'portfolio:home' %}" style="color: white; text-decoration: none">André Carvalho</a></div>
             <nav class="hero__menu">
-                <a href="{% url 'portfolio:home' %}">Home</a>
-                <a href="{% url 'portfolio:projetos' %}">Projetos</a>
-                <a href="{% url 'portfolio:videos' %}">Videos</a>
-                {% for area in areas %}
-                    <a href="{% url 'portfolio:area_detail' area_id=area.id %}">{{ area.nome }}</a>
-                {% endfor %}
+                <a href="{% url 'users:index' %}">Home</a>
+
+                <div class="dropdown">
+                    <a href="javascript:;" class="dropdown__trigger">Projetos</a>
+                    <div class="dropdown__content">
+                        <a href="{% url 'users:lista_projetos' %}">Lista Projetos</a>
+                        <a href="{% url 'users:adiciona_projeto' %}">Adicionar Projeto</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="javascript:;" class="dropdown__trigger">Videos</a>
+                    <div class="dropdown__content">
+                        <a href="{% url 'users:lista_videos' %}">Lista Videos</a>
+                        <a href="{% url 'users:adiciona_video' %}">Adicionar Video</a>
+                    </div>
+                </div>
+
+
+                <a href="{% url 'users:logout' %}">Logout</a>
             </nav>
         </header>
-        <main>
+        <main class="admin">
             {% block main %}
             {% endblock main %}
         </main>
