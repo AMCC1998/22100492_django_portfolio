@@ -92,7 +92,7 @@ def metreologia_web_scraping():
 
 
 def consulta_metreologia(request):
-    dados = DadosMeteorologia.objects.all()
+    dados = DadosMeteorologia.objects.all()[:20]
     dados_grafico = []
     for dado in dados:
         dado_grafico = {

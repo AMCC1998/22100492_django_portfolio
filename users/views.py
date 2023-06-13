@@ -205,6 +205,7 @@ def lista_videos(request):
 
 
 # *********************************************************************************************
+@login_required
 def adiciona_user(request):
     if request.method == 'POST':
         form = AdicionarUserForm(request.POST)
@@ -221,7 +222,7 @@ def adiciona_user(request):
 
     return render(request, 'users/form_adicionar.html', {'form': form})
 
-
+@login_required
 def edita_user(request, user_id):
     user = User.objects.get(id=user_id)
 
@@ -272,6 +273,7 @@ def lista_utilizadores(request):
 
 
 # *********************************************************************************************
+@login_required
 def adiciona_formacao(request):
     if request.method == 'POST':
         form = AdicionarFormacaoForm(request.POST, request.FILES)
@@ -290,7 +292,7 @@ def adiciona_formacao(request):
 
     return render(request, 'users/form_adicionar.html', {'form': form})
 
-
+@login_required
 def edita_formacao(request, objeto_id):
     formacao = get_object_or_404(Formacao, id=objeto_id)
 
@@ -356,6 +358,7 @@ def lista_formacoes(request):
 
 
 # *********************************************************************************************
+@login_required
 def adiciona_categoria_projeto(request):
     if request.method == 'POST':
         form = AdicionarCategoriaProjetoForm(request.POST)
@@ -370,7 +373,7 @@ def adiciona_categoria_projeto(request):
 
     return render(request, 'users/form_adicionar.html', {'form': form})
 
-
+@login_required
 def edita_categoria_projeto(request, objeto_id):
     categoria_projeto = get_object_or_404(CatergoriaProjeto, id=objeto_id)
 
