@@ -91,6 +91,7 @@ footer {
   }
   header .dropdown {
     position: relative;
+    width: 100%;
   }
   header .dropdown .dropdown__content {
     top: 3rem;
@@ -149,6 +150,7 @@ footer {
     position: absolute;
     height: 100%;
     width: 80%;
+    max-width: 300px;
     background-color: rgba(33, 33, 33, 0.99);
     top: 0;
     left: 0;
@@ -234,11 +236,11 @@ header nav a {
 header .dropdown {
   padding: 0;
   display: flex;
-  width: 100%;
 }
 header .dropdown .dropdown__trigger {
   padding-top: 1rem;
   padding-bottom: 1rem;
+  margin-top: -2px;
 }
 header .dropdown .dropdown__trigger:after {
   content: "+";
@@ -400,6 +402,37 @@ main #area-videos #bg-video {
   z-index: -1;
   object-fit: cover;
   pointer-events: none;
+}
+main #area-labs {
+  text-align: center;
+}
+main #area-labs .lista-labs .lista-labs__item {
+  text-align: center;
+  margin-bottom: 6rem;
+}
+main #area-labs .lista-labs .lista-labs__item iframe {
+  margin-bottom: 2rem;
+}
+main #area-labs .lista-labs .lista-labs__item:last-child {
+  margin-bottom: 0;
+}
+main #area-contactos {
+  text-align: center;
+}
+main #area-contactos .hero__subtitle a {
+  font-size: 1.8rem;
+  text-decoration: none;
+}
+main #area-sobre {
+  text-align: center;
+}
+main #area-sobre .intro {
+  background-color: #f9f9f9;
+  padding: 6rem 1rem;
+}
+main #area-sobre .intro .wrapper-texto {
+  max-width: 600px;
+  margin: auto;
 }
 main .titulo-area {
   margin-bottom: 3rem;

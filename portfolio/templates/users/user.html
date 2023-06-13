@@ -1,11 +1,18 @@
 {% extends 'users/layout.html' %}
 
 {% block main %}
-    <h1>Bem vindo, {{ request.user.first_name }}</h1>
-    <ul>
-        <li>Username : {{ request.user.username }}</li>
-        <li>Email: {{ request.user.email }}</li>
-    </ul>
+    <div>
+        <center>
+            <div>
+                <h1>Bem vindo, {{ request.user.first_name }}</h1>
+            </div>
+            <br>
+            <div>
+                <p>Username : {{ request.user.username }}</p>
+                <p>Email: {{ request.user.email }}</p>
+            </div>
+        </center>
+    </div>
 
 
 {% endblock %}

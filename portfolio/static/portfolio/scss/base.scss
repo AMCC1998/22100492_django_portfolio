@@ -31,11 +31,12 @@ header {
     .dropdown {
         padding: 0;
         display: flex;
-        width: 100%;
+        //width: 100%;
 
         .dropdown__trigger {
             padding-top: 1rem;
             padding-bottom: 1rem;
+            margin-top: -2px;
 
             &:after {
                 content: "+";
@@ -256,6 +257,50 @@ main {
         }
     }
 
+    #area-labs {
+        text-align: center;
+
+        .lista-labs {
+            .lista-labs__item {
+                text-align: center;
+                margin-bottom: 6rem;
+
+                iframe {
+                    margin-bottom: 2rem;
+                }
+
+                &:last-child {
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    #area-contactos {
+        text-align: center;
+
+        .hero__subtitle {
+            a {
+                font-size: 1.8rem;
+                text-decoration: none;
+            }
+        }
+    }
+
+    #area-sobre {
+        text-align: center;
+
+        .intro {
+            background-color: #f9f9f9;
+            padding: 6rem 1rem;
+
+            .wrapper-texto {
+                max-width: 600px;
+                margin: auto;
+            }
+        }
+    }
+
     .titulo-area {
         margin-bottom: 3rem;
         margin-top: 4rem;
@@ -279,12 +324,13 @@ main {
 
                 width: 100%;
 
-                div{
+                div {
                     margin-top: -1rem;
                 }
+
                 p, div {
                     display: block;
-                    margin-bottom:2rem;
+                    margin-bottom: 2rem;
 
                     label {
                         //text-align: center;

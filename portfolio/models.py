@@ -51,18 +51,6 @@ class Foto(models.Model):
         return format_html(self.nome + '<img src="{}" height="60" alt="{}">', imagem_url, self.alt)
 
 
-class Area_Site(models.Model):
-    nome = models.CharField(max_length=50)
-    nomeItemMenu = models.CharField(max_length=50, default='')
-    seoTitle = models.CharField(max_length=50, default='')
-    seoDescription = TextField(max_length=70, default='')
-    html = models.TextField(default='')
-    posicao = models.IntegerField(default=0)
-
-    def __str__(self):
-        return f"{self.nome} (Posição: {self.posicao})"
-
-
 class Video(models.Model):
     nome = models.CharField(max_length=50)
     iframe = models.TextField(max_length=2000)

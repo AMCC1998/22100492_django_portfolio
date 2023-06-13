@@ -91,6 +91,7 @@ footer {
   }
   header .dropdown {
     position: relative;
+    width: 100%;
   }
   header .dropdown .dropdown__content {
     top: 3rem;
@@ -149,6 +150,7 @@ footer {
     position: absolute;
     height: 100%;
     width: 80%;
+    max-width: 300px;
     background-color: rgba(33, 33, 33, 0.99);
     top: 0;
     left: 0;

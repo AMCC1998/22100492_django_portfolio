@@ -31,15 +31,24 @@
             <a class="link-menu-mobile">
                 <span class="middle-bar"></span>
             </a>
-            <div><a href="{% url 'portfolio:home' %}" style="color: white; text-decoration: none">André Carvalho</a></div>
+            <div><a href="{% url 'users:index' %}" style="color: white; text-decoration: none">André Carvalho</a></div>
             <nav class="hero__menu">
-                <a href="{% url 'users:index' %}">Home</a>
+
+                <div class="dropdown">
+                    <a href="javascript:;" class="dropdown__trigger">Utilizadores</a>
+                    <div class="dropdown__content">
+                        <a href="{% url 'users:lista_utilizadores' %}">Lista Utilizadores</a>
+                        <a href="{% url 'users:adiciona_user' %}">Adicionar Utilizador</a>
+                    </div>
+                </div>
 
                 <div class="dropdown">
                     <a href="javascript:;" class="dropdown__trigger">Projetos</a>
                     <div class="dropdown__content">
                         <a href="{% url 'users:lista_projetos' %}">Lista Projetos</a>
                         <a href="{% url 'users:adiciona_projeto' %}">Adicionar Projeto</a>
+                        <a href="{% url 'users:lista_categoria_projeto' %}">Lista Categorias de Projetos</a>
+                        <a href="{% url 'users:adiciona_categoria_projeto' %}">Adicionar Categoria de Projeto</a>
                     </div>
                 </div>
 
@@ -48,6 +57,14 @@
                     <div class="dropdown__content">
                         <a href="{% url 'users:lista_videos' %}">Lista Videos</a>
                         <a href="{% url 'users:adiciona_video' %}">Adicionar Video</a>
+                    </div>
+                </div>
+
+                <div class="dropdown">
+                    <a href="javascript:;" class="dropdown__trigger">Formação</a>
+                    <div class="dropdown__content">
+                        <a href="{% url 'users:lista_formacoes' %}">Lista Formações</a>
+                        <a href="{% url 'users:adiciona_formacao' %}">Adicionar Formação</a>
                     </div>
                 </div>
 
