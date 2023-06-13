@@ -423,6 +423,78 @@ def lista_categoria_projeto(request):
 # **************************************************************************************************
 
 
+# *********************************************************************************************
+@login_required
+def adiciona_foto(request):
+    if request.method == 'POST':
+        form = AdicionarFotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            nome = form.cleaned_data['nome']
+            alt = form.cleaned_data['alt']
+            imagem = form.cleaned_data['imagem']
+
+            foto = Foto.objects.create(nome=nome, alt=alt, imagem=imagem)
+            return redirect('users:lista_fotos')
+
+    else:
+        form = AdicionarFotoForm()
+
+    return render(request, 'users/form_adicionar.html', {'form': form})
+
+
+@login_required
+def edita_foto(request, objeto_id):
+    foto = get_object_or_404(Foto, id=objeto_id)
+
+    if request.method == 'POST':
+        form = EditarFotoForm(request.POST, request.FILES)
+        if form.is_valid():
+            foto.nome = form.cleaned_data['nome']
+            foto.alt = form.cleaned_data['alt']
+            if 'imagem' in request.FILES:
+                foto.imagem = request.FILES['imagem']
+            foto.save()
+            return redirect('users:lista_fotos')
+    else:
+        form = EditarFotoForm(initial={'nome': foto.nome, 'alt': foto.alt})
+
+    return render(request, 'users/form_editar.html', {'form': form})
+
+
+@login_required
+def lista_fotos(request):
+    fotos = Foto.objects.all()
+
+    campos_a_listar = ['nome', 'alt', 'imagem', 'id']
+    fotos_array = []
+
+    for foto in fotos:
+        foto_lista = []
+        for campo in campos_a_listar:
+            try:
+                valor = getattr(foto, campo)
+                campo_verbose = foto._meta.get_field(campo).verbose_name
+                foto_lista.append({'Campo': campo_verbose, 'Valor': valor})
+            except AttributeError:
+                continue
+        fotos_array.append(foto_lista)
+
+    context = {
+        'titulo': 'Fotos',
+        'campos_a_listar': campos_a_listar,
+        'objs': fotos_array,
+        'endereco_edicao': 'users:edita_foto',
+        'endereco_adicao': 'users:adiciona_foto',
+        'endereco_eliminar': 'users:eliminar_foto',
+        'seoTitle': 'Listar Fotos | André Carvalho',
+        'seoDescription': 'Exibindo uma lista de fotos.',
+    }
+    return render(request, 'users/lista_objs.html', context)
+
+
+# **************************************************************************************************
+
+
 @login_required
 def eliminar_objeto(request, objeto_id, model, end):
     objeto = get_object_or_404(model, id=objeto_id)

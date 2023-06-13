@@ -2,31 +2,58 @@
 {% load static %}
 
 {% block main %}
-    <div id="area-contactos" class="w-1200">
-        <h1>Dados de Meteorologia</h1>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <div id="area-meteorologia" class="w-1200">
         <center>
-            <table>
-                <thead>
-                <tr>
-                    <th>Cidade</th>
-                    <th>Temperatura</th>
-                    <th>Descrição</th>
-                    <th>Data</th>
-                </tr>
-                </thead>
-                <tbody>
-                {% for dado in dados %}
-                    <tr>
-                        <td>{{ dado.cidade }}</td>
-                        <td>{{ dado.temperatura }}</td>
-                        <td>{{ dado.descricao }}</td>
-                        <td>{{ dado.data_hora }}</td>
-                    </tr>
-                {% endfor %}
-                </tbody>
-            </table>
+            <h1>Dados de Meteorologia</h1>
+            <canvas id="myChart"></canvas>
         </center>
     </div>
+    <script>
+        var dados = JSON.parse('{{ dados_grafico|safe }}');
+
+        document.addEventListener('DOMContentLoaded', function() {
+
+            var labels = dados.map(function(dado) {
+                var dataHora = new Date(dado.data_hora);
+                var dia = dataHora.getDate();
+                var mes = dataHora.getMonth() + 1;
+                var ano = dataHora.getFullYear();
+                var hora = dataHora.getHours();
+                var minutos = dataHora.getMinutes();
+                var dataFormatada = dia + '/' + mes + '/' + ano + ' ' + hora + ':' + minutos;
+                return dataFormatada;
+            });
+
+
+            var temperaturas = dados.map(function(dado) {
+                return dado.temperatura;
+            });
+
+
+            var ctx = document.getElementById('myChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Temperatura',
+                        data: temperaturas,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+
 {% endblock %}
-
-

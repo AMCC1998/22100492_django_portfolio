@@ -49,6 +49,12 @@ urlpatterns = [
     path('eliminar_formacao/<int:objeto_id>/', views.eliminar_objeto, {'model': Formacao, 'end': 'users:lista_formacoes'}, name='eliminar_formacao'),
     path('lista_formacoes', views.lista_formacoes, name='lista_formacoes'),
 
+    # Fotos
+    path('adiciona_foto', views.adiciona_foto, name='adiciona_foto'),
+    path('edita_foto/<int:objeto_id>/', views.edita_foto, name='edita_foto'),
+    path('eliminar_foto/<int:objeto_id>/', views.eliminar_objeto, {'model': Foto, 'end': 'users:lista_fotos'}, name='eliminar_foto'),
+    path('lista_fotos', views.lista_fotos, name='lista_fotos'),
+
 
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

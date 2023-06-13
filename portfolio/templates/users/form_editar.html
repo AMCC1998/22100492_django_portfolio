@@ -1,7 +1,7 @@
 {% extends 'users/layout.html' %}
 
 {% block main %}
-    <div class="wrapper-form-adicionar">
+    <div class="wrapper-form-adicionar" enctype="multipart/form-data">
         <form method="post">
             {% csrf_token %}
             {{ form.as_p }}

@@ -4,6 +4,7 @@ from .models import *
 from bs4 import BeautifulSoup
 import requests
 import time, threading
+import json
 
 import time
 from datetime import datetime
@@ -92,13 +93,25 @@ def metreologia_web_scraping():
 
 def consulta_metreologia(request):
     dados = DadosMeteorologia.objects.all()
-    return render(request, 'portfolio/meteorologia.html', {'dados': dados})
+    dados_grafico = []
+    for dado in dados:
+        dado_grafico = {
+            'data_hora': dado.data_hora.strftime('%Y-%m-%d %H:%M:%S'),
+            'temperatura': dado.temperatura
+        }
+        dados_grafico.append(dado_grafico)
+
+    context = {
+        'dados_grafico': json.dumps(dados_grafico)
+    }
+
+    return render(request, 'portfolio/meteorologia.html', context)
 
 
 def agendar_metreologia_web_scraping():
     metreologia_web_scraping()
     # intervalo_segundos = 5
-    intervalo_segundos = 8 * 60 * 60  # Intervalo de 8 horas em segundos
+    intervalo_segundos = 6 * 60 * 60  # Intervalo de 6 horas em segundos
     while True:
         time.sleep(intervalo_segundos)
         metreologia_web_scraping()

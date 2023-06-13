@@ -68,6 +68,14 @@
                     </div>
                 </div>
 
+                <div class="dropdown">
+                    <a href="javascript:;" class="dropdown__trigger">Fotos Projetos</a>
+                    <div class="dropdown__content">
+                        <a href="{% url 'users:lista_fotos' %}">Lista Fotos</a>
+                        <a href="{% url 'users:adiciona_foto' %}">Adicionar Foto</a>
+                    </div>
+                </div>
+
 
                 <a href="{% url 'users:logout' %}">Logout</a>
             </nav>

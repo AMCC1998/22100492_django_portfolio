@@ -486,6 +486,14 @@ main #area-sobre .formacao {
 main #area-sobre .formacao h2 {
   margin-top: 0px;
 }
+main #area-meteorologia table {
+  border: 2px solid #2b2b2b;
+  border-radius: 4px;
+}
+main #area-meteorologia table td, main #area-meteorologia table th {
+  border: 2px solid #2b2b2b;
+  padding: 4px 2px;
+}
 main .titulo-area {
   margin-bottom: 3rem;
   margin-top: 4rem;

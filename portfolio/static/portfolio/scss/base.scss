@@ -365,6 +365,18 @@ main {
         }
     }
 
+    #area-meteorologia {
+        table {
+            border: 2px solid $cor-cizento-escuro;
+            border-radius: 4px;
+
+            td,th {
+                border: 2px solid $cor-cizento-escuro;
+                padding: 4px 2px;
+            }
+        }
+    }
+
     .titulo-area {
         margin-bottom: 3rem;
         margin-top: 4rem;

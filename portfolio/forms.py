@@ -94,4 +94,21 @@ class EditarFormacaoForm(forms.Form):
     detalhes = forms.CharField(widget=forms.Textarea, max_length=5000)
     pdfFile = forms.FileField(required=False)
 
+
+# *******************************************************************************
+
+
+# ********************************** Fotos *************************************
+
+class AdicionarFotoForm(forms.Form):
+    nome = forms.CharField(max_length=255)
+    alt = forms.CharField(max_length=255)
+    imagem = forms.ImageField()
+
+
+class EditarFotoForm(forms.Form):
+    nome = forms.CharField(max_length=255)
+    alt = forms.CharField(max_length=255)
+    imagem = forms.ImageField()
+
 # *******************************************************************************
