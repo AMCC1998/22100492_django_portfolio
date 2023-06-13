@@ -1,10 +1,12 @@
 from django.shortcuts import render, get_object_or_404
 from .models import *
 
+from bs4 import BeautifulSoup
+import requests
+import time, threading
 
-# Create your views here.
-
-#  hello/views.py
+import time
+from datetime import datetime
 
 
 def home_page_view(request):
@@ -56,8 +58,51 @@ def contactos_view(request):
 
 
 def sobre_view(request):
+    formacoes = Formacao.objects.all()
     context = {
+        'formacoes': formacoes,
         'seoTitle': 'Sobre | André Carvalho',
         'seoDescription': 'O meu interesse pela programação web começou há 5 anos quando ingressei no meu primeiro emprego.',
     }
     return render(request, 'portfolio/sobre_mim.html', context)
+
+
+def metreologia_web_scraping():
+    url = 'https://weather.com/pt-PT/clima/hoje/l/f0d93b551dcc5b4eeee581ecbbc1eec1306bf6c27ea78e3c64d846a3a34969a3'
+    response = requests.get(url)
+    soup = BeautifulSoup(response.content, 'html.parser')
+
+    dados = []
+    localidade = soup.find('div', {'data-cq-observe': True})
+
+    cidade = localidade.find('h1').text
+    temperatura_element = soup.find('span', {'data-testid': 'TemperatureValue'})
+    temperatura_text = temperatura_element.text if temperatura_element else ''
+    temperatura_text = temperatura_text.replace('°', '')
+    temperatura = float(temperatura_text) if temperatura_text.isdigit() else 0
+
+    descricao = localidade.find('div', {'data-testid': 'wxPhrase'}).text
+    data_hora = datetime.now()
+    dados.append({'cidade': cidade, 'temperatura': temperatura, 'descricao': descricao, 'data_hora': data_hora})
+
+    for dado in dados:
+        novo_dado = DadosMeteorologia(cidade=dado['cidade'], temperatura=dado['temperatura'], descricao=dado['descricao'], data_hora=dado['data_hora'])
+        novo_dado.save()
+
+
+def consulta_metreologia(request):
+    dados = DadosMeteorologia.objects.all()
+    return render(request, 'portfolio/meteorologia.html', {'dados': dados})
+
+
+def agendar_metreologia_web_scraping():
+    metreologia_web_scraping()
+    # intervalo_segundos = 5
+    intervalo_segundos = 8 * 60 * 60  # Intervalo de 8 horas em segundos
+    while True:
+        time.sleep(intervalo_segundos)
+        metreologia_web_scraping()
+
+
+t = threading.Thread(target=agendar_metreologia_web_scraping)
+t.start()

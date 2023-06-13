@@ -1,0 +1,32 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+    <div id="area-contactos" class="w-1200">
+        <h1>Dados de Meteorologia</h1>
+        <center>
+            <table>
+                <thead>
+                <tr>
+                    <th>Cidade</th>
+                    <th>Temperatura</th>
+                    <th>Descrição</th>
+                    <th>Data</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for dado in dados %}
+                    <tr>
+                        <td>{{ dado.cidade }}</td>
+                        <td>{{ dado.temperatura }}</td>
+                        <td>{{ dado.descricao }}</td>
+                        <td>{{ dado.data_hora }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </center>
+    </div>
+{% endblock %}
+
+

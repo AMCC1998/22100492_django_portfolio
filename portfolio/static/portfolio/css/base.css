@@ -434,6 +434,58 @@ main #area-sobre .intro .wrapper-texto {
   max-width: 600px;
   margin: auto;
 }
+main #area-sobre .intro .wrapper-texto h1 {
+  margin-top: 0px;
+}
+main #area-sobre .skills {
+  padding: 6rem 1rem;
+  background-color: #2b2b2b;
+  color: white;
+}
+main #area-sobre .skills h2 {
+  margin-top: 0px;
+}
+main #area-sobre .skills .skill-lista {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 700px;
+  margin: auto;
+  gap: 2rem 4rem;
+}
+main #area-sobre .skills .skill-lista .skill__item {
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+main #area-sobre .skills .skill-lista .skill__item .wrapper-img {
+  min-width: 80px;
+}
+main #area-sobre .skills .skill-lista .skill__item .wrapper-img img {
+  max-width: 80px;
+  max-height: 50px;
+}
+main #area-sobre .skills .skill-lista .skill__item .classificacao {
+  height: 9px;
+  background-color: #f9f9f9;
+  width: 6rem;
+  border-radius: 4px;
+  position: relative;
+  border: 2px solid #f7b63e;
+}
+main #area-sobre .skills .skill-lista .skill__item .classificacao span {
+  position: absolute;
+  background-color: #f7b63e;
+  display: inline-block;
+  left: 0;
+  height: 100%;
+}
+main #area-sobre .formacao {
+  padding: 6rem 1rem;
+}
+main #area-sobre .formacao h2 {
+  margin-top: 0px;
+}
 main .titulo-area {
   margin-bottom: 3rem;
   margin-top: 4rem;
@@ -548,6 +600,9 @@ footer {
   main #area-home #banner .banner__img img {
     max-width: 100%;
   }
+  main #area-sobre .skills .skill-lista {
+    grid-template-columns: repeat(2, 1fr);
+  }
   main #area-home .projetos-destaque, main #area-home .lista-projetos, main #area-videos .projetos-destaque, main #area-videos .lista-projetos, main #area-projetos .projetos-destaque, main #area-projetos .lista-projetos {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -569,6 +624,13 @@ footer {
   }
   main #area-home #banner .banner__img img {
     max-width: 100%;
+  }
+  main #area-sobre .skills .skill-lista {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+  }
+  main #area-sobre .skills .skill-lista .skill__item {
+    justify-content: center;
   }
   main #area-home .projetos-destaque, main #area-home .lista-projetos, main #area-videos .projetos-destaque, main #area-videos .lista-projetos, main #area-projetos .projetos-destaque, main #area-projetos .lista-projetos {
     display: grid;

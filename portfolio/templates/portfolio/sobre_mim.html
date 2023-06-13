@@ -15,6 +15,160 @@
             </div>
         </div>
 
+        <div class="skills">
+            <h2>Skills</h2>
+            <div class="skill-lista">
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/php.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 90%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/html.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 90%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/js.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 80%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/scss.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 90%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/c.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 40%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/java.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 40%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/kotlin.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 30%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/arduino.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 70%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/sql.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 30%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/figma.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 60%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/ai.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 50%"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skill__item">
+                    <div class="wrapper-img">
+                        <img src="{% static 'portfolio/images/ps.svg' %}">
+                    </div>
+                    <div class="classificacao">
+                        <div class="classificacao__item">
+                            <span style="width: 50%"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="formacao">
+            <h2>Formações / Experiência</h2>
+            {% for formacao in formacoes %}
+                <div class="formacao__item">
+                    <div class="wrapper-texto">
+                        {% if formacao.pdfFile != "" %}
+                            <a target="_blank" href="{{ formacao.pdfFile.url }}">
+                                <h3>{{ formacao.titulo }}</h3>
+                            </a>
+                        {% else %}
+                            <h3>{{ formacao.titulo }}</h3>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
     </div>
 {% endblock %}
 

@@ -16,6 +16,7 @@ urlpatterns = [
     path('labs', views.labs_view, name='labs'),
     path('contactos', views.contactos_view, name='contactos'),
     path('sobre', views.sobre_view, name='sobre'),
+    path('meteorologia', views.consulta_metreologia, name='meteorologia'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -294,9 +294,73 @@ main {
             background-color: #f9f9f9;
             padding: 6rem 1rem;
 
+
             .wrapper-texto {
+                h1 {
+                    margin-top: 0px;
+                }
+
                 max-width: 600px;
                 margin: auto;
+            }
+        }
+
+        .skills {
+            padding: 6rem 1rem;
+            background-color: $cor-cizento-escuro;
+            color: white;
+
+            h2 {
+                margin-top: 0px;
+            }
+
+            .skill-lista {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                max-width: 700px;
+                margin: auto;
+                gap: 2rem 4rem;
+
+                .skill__item {
+                    margin-bottom: 2rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 2rem;
+
+                    .wrapper-img {
+                        min-width: 80px;
+
+                        img {
+                            max-width: 80px;
+                            max-height: 50px;
+                        }
+                    }
+
+                    .classificacao {
+                        height: 9px;
+                        background-color: $cor-cizento-claro;
+                        width: 6rem;
+                        border-radius: 4px;
+                        position: relative;
+                        border: 2px solid $cor-laranja;
+
+                        span {
+                            position: absolute;
+                            background-color: $cor-laranja;
+                            display: inline-block;
+                            left: 0;
+                            height: 100%;
+                        }
+                    }
+                }
+            }
+        }
+
+        .formacao {
+            padding: 6rem 1rem;
+
+            h2 {
+                margin-top: 0px;
             }
         }
     }
@@ -457,6 +521,14 @@ footer {
             }
         }
 
+        #area-sobre {
+            .skills {
+                .skill-lista {
+                    grid-template-columns: repeat(2, 1fr);
+                }
+            }
+        }
+
         #area-home, #area-videos, #area-projetos {
             .projetos-destaque, .lista-projetos {
                 display: grid;
@@ -485,6 +557,19 @@ footer {
 
                     img {
                         max-width: 100%;
+                    }
+                }
+            }
+        }
+
+        #area-sobre {
+            .skills {
+                .skill-lista {
+                    grid-template-columns: repeat(1, 1fr);
+                    gap: 1rem;
+
+                    .skill__item {
+                        justify-content: center;
                     }
                 }
             }

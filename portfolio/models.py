@@ -58,6 +58,7 @@ class Video(models.Model):
     def __str__(self):
         return self.nome
 
+
 class Formacao(models.Model):
     titulo = models.CharField(max_length=255)
     dataInicio = models.DateField(null=True, default=None)
@@ -67,3 +68,13 @@ class Formacao(models.Model):
 
     def __str__(self):
         return self.titulo
+
+
+class DadosMeteorologia(models.Model):
+    cidade = models.CharField(max_length=100)
+    temperatura = models.FloatField()
+    descricao = models.CharField(max_length=100)
+    data_hora = models.DateTimeField(null=True, default=None)
+
+    def __str__(self):
+        return self.cidade
