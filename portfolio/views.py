@@ -36,7 +36,7 @@ def videos_view(request):
     videos = Video.objects.all()
     context = {
         'videos': videos,
-        'seoTitle': 'Projetos | André Carvalho',
+        'seoTitle': 'Videos | André Carvalho',
         'seoDescription': 'O meu canal de YouTube.',
     }
     return render(request, 'portfolio/videos.html', context)

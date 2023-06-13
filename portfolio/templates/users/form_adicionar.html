@@ -3,7 +3,7 @@
 {% block main %}
     <div class="wrapper-form-adicionar">
         <h2>Adicionar</h2>
-        <form method="post" enctype="multipart/form-data"s>
+        <form method="post" enctype="multipart/form-data">
             {% csrf_token %}
             {{ form.as_p }}
             <input type="submit" value="Enviar">
