@@ -69,7 +69,7 @@ def sobre_view(request):
 
 
 def metreologia_web_scraping():
-    url = 'https://weather.com/pt-PT/clima/hoje/l/f0d93b551dcc5b4eeee581ecbbc1eec1306bf6c27ea78e3c64d846a3a34969a3'
+    url = '//weather.com/pt-PT/clima/hoje/l/f0d93b551dcc5b4eeee581ecbbc1eec1306bf6c27ea78e3c64d846a3a34969a3'
     response = requests.get(url)
     soup = BeautifulSoup(response.content, 'html.parser')
 
@@ -92,7 +92,7 @@ def metreologia_web_scraping():
 
 
 def consulta_metreologia(request):
-    dados = DadosMeteorologia.objects.all()[:20]
+    dados = DadosMeteorologia.objects.all()[:60]
     dados_grafico = []
     for dado in dados:
         dado_grafico = {
@@ -108,8 +108,18 @@ def consulta_metreologia(request):
     return render(request, 'portfolio/meteorologia.html', context)
 
 
+def cidades(request):
+    dados = Cidade.objects.all()
+
+    context = {
+        'cidades': dados
+    }
+
+    return render(request, 'portfolio/cidades.html', context)
+
+
 def agendar_metreologia_web_scraping():
-    metreologia_web_scraping()
+    # metreologia_web_scraping()
     # intervalo_segundos = 5
     intervalo_segundos = 6 * 60 * 60  # Intervalo de 6 horas em segundos
     while True:

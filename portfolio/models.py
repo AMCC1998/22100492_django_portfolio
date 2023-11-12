@@ -66,7 +66,14 @@ class DadosMeteorologia(models.Model):
     cidade = models.CharField(max_length=100)
     temperatura = models.FloatField()
     descricao = models.CharField(max_length=100)
-    data_hora = models.DateTimeField(null=True, default=None)
+    data_hora = models.DateTimeField(null=True)
 
     def __str__(self):
         return self.cidade
+
+class Cidade(models.Model):
+    nome = models.CharField(max_length=255)
+    pais = models.CharField(max_length=255)
+
+    def __str__(self):
+        return self.nome

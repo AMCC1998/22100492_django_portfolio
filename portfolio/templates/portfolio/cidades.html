@@ -1,0 +1,17 @@
+{% extends 'portfolio/layout.html' %}
+{% load static %}
+
+{% block main %}
+    <div id="area-projetos" class="w-1200">
+        <h1 class="titulo-area h2">Cidades</h1>
+        <div class="lista-projetos">
+            {% for cidade in cidades %}
+                <div>
+                    <h3>{{ cidade.nome }}</h3>
+                    <p>{{ cidade.pais }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% load static %}
+{% endblock %}

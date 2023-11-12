@@ -17,6 +17,7 @@ urlpatterns = [
     path('contactos', views.contactos_view, name='contactos'),
     path('sobre', views.sobre_view, name='sobre'),
     path('meteorologia', views.consulta_metreologia, name='meteorologia'),
+    path('cidades', views.cidades, name='cidades'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
